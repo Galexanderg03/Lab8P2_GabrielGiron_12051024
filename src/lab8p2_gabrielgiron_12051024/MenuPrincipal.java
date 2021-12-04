@@ -7,7 +7,9 @@ package lab8p2_gabrielgiron_12051024;
 
 import javax.swing.JComboBox;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Galex
@@ -19,6 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        
     }
 
     /**
@@ -42,23 +45,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Start = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Descripciontxt = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        Distanciatxt = new javax.swing.JTextField();
+        CB2Partida = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        Estrellatxt = new javax.swing.JTextField();
+        CrearEstrella = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        JugadorNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        Velocidadtxt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
+        CB3Partida = new javax.swing.JComboBox<>();
+        CrearJugador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,19 +136,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Partidas", jPanel3);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Descripciontxt.setColumns(20);
+        Descripciontxt.setRows(5);
+        jScrollPane1.setViewportView(Descripciontxt);
 
         jLabel3.setText("Descripcion");
 
         jLabel4.setText("Distancia");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB2Partida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        setComboBox2();
 
         jLabel5.setText("Nombre");
 
-        jButton5.setText("Crear Estrella");
+        CrearEstrella.setText("Crear Estrella");
+        CrearEstrella.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearEstrellaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Partida");
 
@@ -159,14 +168,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2))
+                    .addComponent(Distanciatxt))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3)
+                    .addComponent(Estrellatxt)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CrearEstrella, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(CB2Partida, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
@@ -185,18 +194,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Distanciatxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CB2Partida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Estrellatxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(CrearEstrella, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -208,9 +217,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel8.setText("Partida");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB3Partida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        setComboBox3();
 
-        jButton6.setText("Crear Jugador");
+        CrearJugador.setText("Crear Jugador");
+        CrearJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearJugadorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -220,14 +235,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4)
+                    .addComponent(JugadorNombre)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                    .addComponent(Velocidadtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                    .addComponent(CB3Partida, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CrearJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -239,14 +254,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JugadorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CB3Partida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
+                    .addComponent(Velocidadtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrearJugador))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
 
@@ -281,6 +296,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Jugar J = new Jugar();
         J.B = B;
         J.M = this;
+        String Name = CB1Partida.getSelectedItem().toString();
+        B.setNombrePartida(Name);
+        System.out.println(B.getNombrePartida());
+        J.setPartidaIngresada();
         J.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonIniciarActionPerformed
@@ -294,8 +313,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Partida P = new Partida(Name);
         B.AP.listaPartidas.add(P);
         B.AP.escribirArchivo();
+        B.AP.cargarArchivo();
         setComboBox1();
+        JOptionPane.showMessageDialog(null, "Partida Creada Exitosamente");
     }//GEN-LAST:event_StartActionPerformed
+
+    private void CrearEstrellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearEstrellaActionPerformed
+        int Distancia = Integer.parseInt(Distanciatxt.getText());
+        String Name = Estrellatxt.getText();
+        String Descripcion = Descripciontxt.getText();
+        Estrella E = new Estrella(Descripcion, Distancia, Name);
+        B.AE.listaEstrella.add(E);
+        B.AE.escribirArchivo();
+        B.AE.cargarArchivo();
+        JOptionPane.showMessageDialog(null, "Estrellada Agregada Exitosamente");
+    }//GEN-LAST:event_CrearEstrellaActionPerformed
+
+    private void CrearJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearJugadorActionPerformed
+        int Velocidad = Integer.parseInt(Velocidadtxt.getText());
+        String Name = JugadorNombre.getText();
+        Jugador J = new Jugador(Name,Velocidad);
+        B.AJ.listaJugadores.add(J);
+        B.AJ.escribirArchivo();
+        B.AJ.cargarArchivo();
+        JOptionPane.showMessageDialog(null, "Jugador Agregada Exitosamente");
+    }//GEN-LAST:event_CrearJugadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,17 +391,59 @@ public class MenuPrincipal extends javax.swing.JFrame {
             CB1Partida = combo;
         }
     }
+    
+    public void setComboBox2()
+    {
+        B.AP.cargarArchivo();
+        DefaultComboBoxModel Model = new DefaultComboBoxModel();
+        JComboBox combo = new JComboBox(Model);
+        if(B.AP.listaPartidas.size() == 0)
+        {
+            CB2Partida = combo;
+        }
+        else
+        {
+            for(int i = 0; i < B.AP.listaPartidas.size(); i++)
+            {
+                Model.addElement(B.AP.listaPartidas.get(i));
+            }
+            CB2Partida = combo;
+        }
+    }
+    public void setComboBox3()
+    {
+        B.AP.cargarArchivo();
+        DefaultComboBoxModel Model = new DefaultComboBoxModel();
+        JComboBox combo = new JComboBox(Model);
+        if(B.AP.listaPartidas.size() == 0)
+        {
+            CB3Partida = combo;
+        }
+        else
+        {
+            for(int i = 0; i < B.AP.listaPartidas.size(); i++)
+            {
+                Model.addElement(B.AP.listaPartidas.get(i));
+            }
+            CB3Partida = combo;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonIniciar;
     private javax.swing.JComboBox<String> CB1Partida;
+    private javax.swing.JComboBox<String> CB2Partida;
+    private javax.swing.JComboBox<String> CB3Partida;
+    private javax.swing.JButton CrearEstrella;
+    private javax.swing.JButton CrearJugador;
+    private javax.swing.JTextArea Descripciontxt;
+    private javax.swing.JTextField Distanciatxt;
+    private javax.swing.JTextField Estrellatxt;
+    private javax.swing.JTextField JugadorNombre;
     private javax.swing.JTextField NPartidatxt;
     private javax.swing.JButton Start;
+    private javax.swing.JTextField Velocidadtxt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -374,13 +458,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 
     public Basededatos B = new Basededatos();
-    
 }
