@@ -144,6 +144,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Distancia");
 
+        Distanciatxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DistanciatxtActionPerformed(evt);
+            }
+        });
+
         CB2Partida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         setComboBox2();
 
@@ -326,6 +332,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         B.AE.listaEstrella.add(E);
         B.AE.escribirArchivo();
         B.AE.cargarArchivo();
+        System.out.println(Distancia);
         JOptionPane.showMessageDialog(null, "Estrellada Agregada Exitosamente");
     }//GEN-LAST:event_CrearEstrellaActionPerformed
 
@@ -338,6 +345,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         B.AJ.cargarArchivo();
         JOptionPane.showMessageDialog(null, "Jugador Agregada Exitosamente");
     }//GEN-LAST:event_CrearJugadorActionPerformed
+
+    private void DistanciatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DistanciatxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DistanciatxtActionPerformed
 
     /**
      * @param args the command line arguments

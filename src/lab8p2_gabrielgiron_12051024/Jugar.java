@@ -35,13 +35,13 @@ public class Jugar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        JuegoProgreso = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        TablaJugar = new javax.swing.JTable();
+        Comenzar = new javax.swing.JButton();
+        Pausar = new javax.swing.JButton();
         CBJugador = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        Agregar = new javax.swing.JButton();
         CBEstrella = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +60,7 @@ public class Jugar extends javax.swing.JFrame {
 
         jLabel5.setText("Distancia Recorrida: ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaJugar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -71,11 +71,16 @@ public class Jugar extends javax.swing.JFrame {
                 "Nombre", "Velocidad", "Estrella", "Distancia", "Estatus"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaJugar);
 
-        jButton1.setText("Comenzar");
+        Comenzar.setText("Comenzar");
+        Comenzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComenzarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Pausar");
+        Pausar.setText("Pausar");
 
         CBJugador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         setJugadorComboBox();
@@ -85,7 +90,12 @@ public class Jugar extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Agregar");
+        Agregar.setText("Agregar");
+        Agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarActionPerformed(evt);
+            }
+        });
 
         CBEstrella.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         setEstrellaComboBox();
@@ -100,17 +110,17 @@ public class Jugar extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(JuegoProgreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Comenzar, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Pausar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(CBJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(CBEstrella, 0, 175, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -142,17 +152,17 @@ public class Jugar extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JuegoProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(Comenzar)
+                    .addComponent(Pausar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CBJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
+                    .addComponent(Agregar)
                     .addComponent(CBEstrella, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
@@ -163,6 +173,58 @@ public class Jugar extends javax.swing.JFrame {
     private void CBJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBJugadorActionPerformed
         
     }//GEN-LAST:event_CBJugadorActionPerformed
+
+    private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+        String Nombre = CBJugador.getSelectedItem().toString();
+        int Velocidad = 0;
+        for(int i = 0; i < B.AJ.listaJugadores.size(); i++)
+        {
+            if(B.AJ.listaJugadores.get(i).getNombre().equals(Nombre))
+            {
+                Velocidad = B.AJ.listaJugadores.get(i).getVelocidad();
+                System.out.println(Velocidad);
+                break;
+            }
+        }
+        
+        String Estrella = CBEstrella.getSelectedItem().toString();
+        int Distancia = 0;
+        for(int i = 0; i < B.AE.listaEstrella.size(); i++)
+        {
+            if(B.AE.listaEstrella.get(i).getNombre().equals(Estrella))
+            {
+                Distancia = B.AE.listaEstrella.get(i).getDistancia();
+                System.out.println(Distancia);
+                break;
+            }
+        }
+        
+        String Estatus = "Espera";
+        int cont1 = 0;
+        TablaJugar.setValueAt(Nombre, cont, cont1);
+        cont1++;
+        TablaJugar.setValueAt(Velocidad, cont, cont1);
+        cont1++;
+        TablaJugar.setValueAt(Estrella, cont, cont1);
+        cont1++;
+        TablaJugar.setValueAt(Distancia, cont, cont1);
+        cont1++;
+        TablaJugar.setValueAt(Estatus, cont, cont1);
+        cont++;
+    }//GEN-LAST:event_AgregarActionPerformed
+
+    private void ComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarActionPerformed
+        int C = 0;
+        int V = Integer.parseInt(TablaJugar.getValueAt(C, 2).toString());
+        int D = Integer.parseInt(TablaJugar.getValueAt(C, 4).toString());
+        System.out.println(V+" "+D);
+        while(V != D)
+        {
+            int P = 0;
+            JuegoProgreso.setValue(P);
+            P = P + V;
+        }
+    }//GEN-LAST:event_ComenzarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,20 +303,21 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Agregar;
     private javax.swing.JComboBox<String> CBEstrella;
     private javax.swing.JComboBox<String> CBJugador;
+    private javax.swing.JButton Comenzar;
+    private javax.swing.JProgressBar JuegoProgreso;
     private javax.swing.JLabel NamePartida;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Pausar;
+    private javax.swing.JTable TablaJugar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
     public Basededatos B = new Basededatos();
     public MenuPrincipal M = new MenuPrincipal();
+    private int cont = 0;
 }
